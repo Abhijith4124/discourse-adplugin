@@ -48,6 +48,9 @@ export default class AdsterraNativeAd extends AdComponent {
         // Create the container div with the specified ID
         const mainContainer = document.getElementById(this.get("divId"));
         if (mainContainer) {
+            // Clear any existing content
+            mainContainer.innerHTML = '';
+
             const adContainer = document.createElement("div");
             adContainer.id = containerId;
             mainContainer.appendChild(adContainer);

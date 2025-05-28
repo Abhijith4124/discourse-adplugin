@@ -118,6 +118,7 @@ en:
 
     adsterra_through_trust_level: "Show your ads to users based on trust levels. Users with trust level higher than this value will not see ads."
     adsterra_exclude_groups: "Ads will not be shown to members of these groups"
+    adsterra_banner_domain: "Domain for Adsterra banner ads (e.g., www.highperformanceformat.com, www.topcreativeformat.com)"
     adsterra_topic_list_top_key: "Enter your Adsterra ad key for banner ads above topic lists"
     adsterra_topic_list_top_width: "Width of banner ad above topic lists (in pixels)"
     adsterra_topic_list_top_height: "Height of banner ad above topic lists (in pixels)"

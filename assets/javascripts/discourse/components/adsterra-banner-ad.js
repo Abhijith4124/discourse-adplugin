@@ -2,30 +2,9 @@ import { scheduleOnce } from "@ember/runloop";
 import { htmlSafe } from "@ember/template";
 import discourseComputed from "discourse/lib/decorators";
 import { isTesting } from "discourse/lib/environment";
-import loadScript from "discourse/lib/load-script";
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 
-let _loaded = false,
-    _promise = null,
-    _c = 0;
-
-function loadAdsterra() {
-    if (_loaded) {
-        return Promise.resolve();
-    }
-
-    if (_promise) {
-        return _promise;
-    }
-
-    _promise = loadScript("//d2lcbe7lfxs26z.cloudfront.net/ad.js", {
-        scriptTag: true,
-    }).then(function () {
-        _loaded = true;
-    });
-
-    return _promise;
-}
+let _c = 0;
 
 export default class AdsterraBannerAd extends AdComponent {
     key = null;
@@ -75,32 +54,30 @@ export default class AdsterraBannerAd extends AdComponent {
             return;
         }
 
-        loadAdsterra().then(() => {
-            if (window.atOptions) {
-                // Clear any existing atOptions to avoid conflicts
-                delete window.atOptions;
-            }
+        const container = document.getElementById(this.get("divId"));
+        if (!container) {
+            return;
+        }
 
-            // Set up Adsterra options for this specific ad
-            window.atOptions = {
-                key: key,
-                format: "iframe",
-                height: this.get("height"),
-                width: this.get("width"),
-                params: {},
-            };
+        // Clear any existing content
+        container.innerHTML = '';
 
-            // Create and inject the script
-            const script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "//www.topcreativeformat.com/" + key + "/invoke.js";
-            script.async = true;
+        // Set up Adsterra options globally (as required by Adsterra)
+        window.atOptions = {
+            key: key,
+            format: "iframe",
+            height: this.get("height"),
+            width: this.get("width"),
+            params: {},
+        };
 
-            const container = document.getElementById(this.get("divId"));
-            if (container) {
-                container.appendChild(script);
-            }
-        });
+        // Create and inject the Adsterra script
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "//" + this.siteSettings.adsterra_banner_domain + "/" + key + "/invoke.js";
+        script.async = true;
+
+        container.appendChild(script);
     }
 
     didInsertElement() {

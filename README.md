@@ -144,24 +144,49 @@ To use different size ads, customize using CSS in your site's theme. Override th
 
 The Adsterra plugin supports two types of ads:
 
-1. **Banner Ads (iFrame Sync)** - Traditional banner ads with configurable dimensions
-2. **Native Banner Ads** - Script-based ads that load external content
+1. **Banner Ads (iFrame Format)** - Traditional banner ads with configurable dimensions
+2. **Native Ads** - Script-based ads that load external content
 
 **For Banner Ads:**
-1. Get your ad key from Adsterra's iFrame sync format
-2. Navigate to Admin > Settings > Adsterra in your Discourse forum
+
+Example banner ad code from Adsterra:
+```html
+<script type="text/javascript">
+    atOptions = {
+        'key' : 'YOUR_AD_KEY_HERE',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/YOUR_AD_KEY_HERE/invoke.js"></script>
+```
+
+Configuration steps:
+1. Navigate to Admin > Settings > Adsterra in your Discourse forum
+2. Set the `adsterra_banner_domain` to your Adsterra domain (e.g., `www.highperformanceformat.com`, `www.topcreativeformat.com`)
 3. Enter your ad key in the appropriate location fields (e.g., `adsterra_topic_list_top_key`)
 4. Set the width and height for your ads (e.g., `adsterra_topic_list_top_width` and `adsterra_topic_list_top_height`)
 5. Configure mobile versions separately using the mobile-specific settings
 
-**For Native Banner Ads:**
-1. Get your script source URL from Adsterra (e.g., `//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js`)
-2. Get your container ID (e.g., `container-[SCRIPT_ID]`)
+**For Native Ads:**
+
+Example native ad code from Adsterra:
+```html
+<script async="async" data-cfasync="false" src="//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js"></script>
+<div id="container-[SCRIPT_ID]"></div>
+```
+
+Configuration steps:
+1. Extract the script URL (e.g., `//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js`)
+2. Extract the container ID (e.g., `container-[SCRIPT_ID]`)
 3. Enter the script URL in the `adsterra_native_*_script_src` settings
 4. Enter the container ID in the `adsterra_native_*_container_id` settings
 
 Example configuration:
-- Banner ad key: `[YOUR_AD_KEY_HERE]`
+- Banner domain: `www.highperformanceformat.com`
+- Banner ad key: `YOUR_AD_KEY_HERE`
 - Banner dimensions: 320x50 for mobile, 728x90 for desktop
 - Native script: `//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js`
 - Native container: `container-[SCRIPT_ID]`

@@ -539,6 +539,9 @@ adsterra_plugin:
     allow_any: false
     refresh: true
     validator: "AtLeastOneGroupValidator"
+  adsterra_banner_domain:
+    client: true
+    default: "www.highperformanceformat.com"
   adsterra_topic_list_top_key:
     client: true
     default: ""
