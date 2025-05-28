@@ -22,6 +22,10 @@ module ::AdPlugin
       !self.user.in_any_groups?(SiteSetting.adbutler_exclude_groups_map)
     end
 
+    def show_adsterra_ads?
+      !self.user.in_any_groups?(SiteSetting.adsterra_exclude_groups_map)
+    end
+
     def show_to_groups?
       !self.user.in_any_groups?(SiteSetting.no_ads_for_groups_map)
     end

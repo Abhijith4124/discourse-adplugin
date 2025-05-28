@@ -12,6 +12,7 @@ en:
           amazon_plugin: "Amazon"
           carbonads_plugin: "Carbon Ads"
           adbutler_plugin: "AdButler"
+          adsterra_plugin: "Adsterra"
       adplugin:
         house_ads:
           title: "House Ads"

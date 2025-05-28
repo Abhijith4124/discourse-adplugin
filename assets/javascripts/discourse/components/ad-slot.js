@@ -65,6 +65,40 @@ const adConfig = EmberObject.create({
       "topic-above-suggested": "adbutler_mobile_topic_above_suggested_zone_id",
     },
   },
+  "adsterra-banner-ad": {
+    settingPrefix: "adsterra",
+    enabledSetting: false, // Use key as enabledSetting check
+    nthPost: "adsterra_nth_post",
+    desktop: {
+      "topic-list-top": "adsterra_topic_list_top_key",
+      "post-bottom": "adsterra_post_bottom_key",
+      "topic-above-post-stream": "adsterra_topic_above_post_stream_key",
+      "topic-above-suggested": "adsterra_topic_above_suggested_key",
+    },
+    mobile: {
+      "topic-list-top": "adsterra_mobile_topic_list_top_key",
+      "post-bottom": "adsterra_mobile_post_bottom_key",
+      "topic-above-post-stream": "adsterra_mobile_topic_above_post_stream_key",
+      "topic-above-suggested": "adsterra_mobile_topic_above_suggested_key",
+    },
+  },
+  "adsterra-native-ad": {
+    settingPrefix: "adsterra_native",
+    enabledSetting: false, // Use script_src as enabledSetting check
+    nthPost: "adsterra_nth_post",
+    desktop: {
+      "topic-list-top": "adsterra_native_topic_list_top_script_src",
+      "post-bottom": "adsterra_native_post_bottom_script_src",
+      "topic-above-post-stream": "adsterra_native_topic_above_post_stream_script_src",
+      "topic-above-suggested": "adsterra_native_topic_above_suggested_script_src",
+    },
+    mobile: {
+      "topic-list-top": "adsterra_native_mobile_topic_list_top_script_src",
+      "post-bottom": "adsterra_native_mobile_post_bottom_script_src",
+      "topic-above-post-stream": "adsterra_native_mobile_topic_above_post_stream_script_src",
+      "topic-above-suggested": "adsterra_native_mobile_topic_above_suggested_script_src",
+    },
+  },
 });
 
 const displayCounts = {
@@ -156,9 +190,8 @@ export function slotContenders(
 
       if (name === undefined) {
         // follows naming convention: prefix_(mobile_)_{placement}_code
-        name = `${config.settingPrefix}_${
-          site.mobileView ? "mobile_" : ""
-        }${placeUnderscored}_code`;
+        name = `${config.settingPrefix}_${site.mobileView ? "mobile_" : ""
+          }${placeUnderscored}_code`;
       }
 
       if (
@@ -222,7 +255,7 @@ export default class AdSlot extends AdComponent {
       if (
         displayCounts.allAds === 0 ||
         (100 * displayCounts.houseAds) / displayCounts.allAds <
-          houseAds.settings.house_ads_frequency
+        houseAds.settings.house_ads_frequency
       ) {
         displayCounts.houseAds += 1;
         displayCounts.allAds += 1;

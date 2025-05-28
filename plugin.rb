@@ -71,6 +71,10 @@ after_initialize do
     scope.show_adbutler_ads?
   end
 
+  add_to_serializer :current_user, :show_adsterra_ads do
+    scope.show_adsterra_ads?
+  end
+
   add_to_serializer :current_user, :show_to_groups do
     scope.show_to_groups?
   end

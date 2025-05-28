@@ -94,6 +94,7 @@
 }
 
 .google-dfp-ad.dfp-ad-post-bottom {
+
   .google-dfp-ad-label,
   .dfp-ad-unit {
     margin: 0 0 0 52px;
@@ -107,6 +108,7 @@
   }
 
   .google-dfp-ad.dfp-ad-post-bottom {
+
     .google-dfp-ad-label,
     .dfp-ad-unit {
       margin: 0 auto;
@@ -174,7 +176,7 @@
 
 .carbon-poweredby {
   position: absolute;
-  right: 0; // You can also set the position to the "left" with the value of calc(130px + carbon-text’s font size). If the font-size is 12px, you’ll want to set the left value as 142px. It’ll align the .carbon-text with .carbon-poweredby
+  right: 0; // You can also set the position to the "left" with the value of calc(130px + carbon-text's font size). If the font-size is 12px, you'll want to set the left value as 142px. It'll align the .carbon-text with .carbon-poweredby
   bottom: 0;
   display: block;
   font-size: 0.8em;
@@ -299,4 +301,45 @@
 
 .house-ad-preview {
   width: 100%;
+}
+
+.adsterra-banner-ad,
+.adsterra-native-ad {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.adsterra-banner-ad .adsterra-ad-label,
+.adsterra-native-ad .adsterra-ad-label {
+  margin-bottom: 5px;
+}
+
+.adsterra-banner-ad .adsterra-ad-label h2,
+.adsterra-native-ad .adsterra-ad-label h2 {
+  margin: 4px 0 !important;
+  color: #858a8c;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+.adsterra-banner-container,
+.adsterra-native-container {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@include breakpoint(mobile-extra-large) {
+
+  .adsterra-banner-ad,
+  .adsterra-native-ad {
+    margin: 10px 0;
+  }
+
+  .adsterra-banner-container,
+  .adsterra-native-container {
+    width: 100% !important;
+    max-width: 320px;
+  }
 }

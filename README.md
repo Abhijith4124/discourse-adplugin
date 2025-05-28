@@ -21,6 +21,7 @@ This is the official Discourse advertising plugin.  It allows advertisements to 
 * [Amazon Affiliates](http://affiliate-program.amazon.com) - Banner and Product Link Ads
 * [Carbon Ads](https://www.carbonads.net/)
 * [AdButler](https://www.adbutler.com/)
+* [Adsterra](https://www.adsterra.com/)
 
 
 ## Quick Start in 3 Steps
@@ -83,6 +84,7 @@ the ad slots. The ads will start showing as soon as you add them to slots.
 <li>DFP - if using the DoubleClick for Publishers advertisement platform.</li>
 <li>Carbon Ads - if using the Carbon Ads advertisement platform.</li>
 <li>AdButler - if using the AdButler advertisement platform.</li>
+<li>Adsterra - if using the Adsterra advertisement platform.</li>
 </ul>
 </ul>
 
@@ -137,6 +139,32 @@ To use different size ads, customize using CSS in your site's theme. Override th
   height: 50px;
 }
 ```
+
+##### Adsterra Advertisement Setup in Discourse
+
+The Adsterra plugin supports two types of ads:
+
+1. **Banner Ads (iFrame Sync)** - Traditional banner ads with configurable dimensions
+2. **Native Banner Ads** - Script-based ads that load external content
+
+**For Banner Ads:**
+1. Get your ad key from Adsterra's iFrame sync format
+2. Navigate to Admin > Settings > Adsterra in your Discourse forum
+3. Enter your ad key in the appropriate location fields (e.g., `adsterra_topic_list_top_key`)
+4. Set the width and height for your ads (e.g., `adsterra_topic_list_top_width` and `adsterra_topic_list_top_height`)
+5. Configure mobile versions separately using the mobile-specific settings
+
+**For Native Banner Ads:**
+1. Get your script source URL from Adsterra (e.g., `//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js`)
+2. Get your container ID (e.g., `container-[SCRIPT_ID]`)
+3. Enter the script URL in the `adsterra_native_*_script_src` settings
+4. Enter the container ID in the `adsterra_native_*_container_id` settings
+
+Example configuration:
+- Banner ad key: `[YOUR_AD_KEY_HERE]`
+- Banner dimensions: 320x50 for mobile, 728x90 for desktop
+- Native script: `//pl[PUBLISHER_ID].profitableratecpm.com/[SCRIPT_ID]/invoke.js`
+- Native container: `container-[SCRIPT_ID]`
 
 ### Step 3 - See Your Ad
 

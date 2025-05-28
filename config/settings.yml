@@ -518,3 +518,148 @@ adbutler_plugin:
   adbutler_adserver_hostname:
     client: true
     default: "servedbyadbutler.com"
+
+adsterra_plugin:
+  adsterra_through_trust_level:
+    client: true
+    default: 2
+    enum: "TrustLevelSetting"
+    hidden: true
+  adsterra_display_groups:
+    client: true
+    default: "10|11|12"
+    type: group_list
+    allow_any: false
+    refresh: true
+    validator: "AtLeastOneGroupValidator"
+    hidden: true
+  adsterra_exclude_groups:
+    default: "3|13|14"
+    type: group_list
+    allow_any: false
+    refresh: true
+    validator: "AtLeastOneGroupValidator"
+  adsterra_topic_list_top_key:
+    client: true
+    default: ""
+  adsterra_topic_list_top_width:
+    client: true
+    default: "320"
+  adsterra_topic_list_top_height:
+    client: true
+    default: "50"
+  adsterra_mobile_topic_list_top_key:
+    client: true
+    default: ""
+  adsterra_mobile_topic_list_top_width:
+    client: true
+    default: "320"
+  adsterra_mobile_topic_list_top_height:
+    client: true
+    default: "50"
+  adsterra_topic_above_post_stream_key:
+    client: true
+    default: ""
+  adsterra_topic_above_post_stream_width:
+    client: true
+    default: "728"
+  adsterra_topic_above_post_stream_height:
+    client: true
+    default: "90"
+  adsterra_mobile_topic_above_post_stream_key:
+    client: true
+    default: ""
+  adsterra_mobile_topic_above_post_stream_width:
+    client: true
+    default: "320"
+  adsterra_mobile_topic_above_post_stream_height:
+    client: true
+    default: "50"
+  adsterra_topic_above_suggested_key:
+    client: true
+    default: ""
+  adsterra_topic_above_suggested_width:
+    client: true
+    default: "728"
+  adsterra_topic_above_suggested_height:
+    client: true
+    default: "90"
+  adsterra_mobile_topic_above_suggested_key:
+    client: true
+    default: ""
+  adsterra_mobile_topic_above_suggested_width:
+    client: true
+    default: "320"
+  adsterra_mobile_topic_above_suggested_height:
+    client: true
+    default: "50"
+  adsterra_post_bottom_key:
+    client: true
+    default: ""
+  adsterra_post_bottom_width:
+    client: true
+    default: "728"
+  adsterra_post_bottom_height:
+    client: true
+    default: "90"
+  adsterra_mobile_post_bottom_key:
+    client: true
+    default: ""
+  adsterra_mobile_post_bottom_width:
+    client: true
+    default: "320"
+  adsterra_mobile_post_bottom_height:
+    client: true
+    default: "50"
+  adsterra_nth_post:
+    client: true
+    default: 4
+    min: 1
+  adsterra_native_topic_list_top_script_src:
+    client: true
+    default: ""
+  adsterra_native_topic_list_top_container_id:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_list_top_script_src:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_list_top_container_id:
+    client: true
+    default: ""
+  adsterra_native_topic_above_post_stream_script_src:
+    client: true
+    default: ""
+  adsterra_native_topic_above_post_stream_container_id:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_above_post_stream_script_src:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_above_post_stream_container_id:
+    client: true
+    default: ""
+  adsterra_native_topic_above_suggested_script_src:
+    client: true
+    default: ""
+  adsterra_native_topic_above_suggested_container_id:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_above_suggested_script_src:
+    client: true
+    default: ""
+  adsterra_native_mobile_topic_above_suggested_container_id:
+    client: true
+    default: ""
+  adsterra_native_post_bottom_script_src:
+    client: true
+    default: ""
+  adsterra_native_post_bottom_container_id:
+    client: true
+    default: ""
+  adsterra_native_mobile_post_bottom_script_src:
+    client: true
+    default: ""
+  adsterra_native_mobile_post_bottom_container_id:
+    client: true
+    default: ""
